@@ -1,0 +1,19 @@
+ .heading {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+ }
+
+ .text_bold {
+    font-weight: bold;
+ }
+
+ .heading_down {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
