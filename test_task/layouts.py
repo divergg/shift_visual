@@ -10,7 +10,8 @@ CARD_STYLE = dict(withBorder=True,
                   radius="md",
                   style={'height': '500px'})
 
-fig = create_timeline(df)
+color_sequence = px.colors.qualitative.Plotly
+fig = create_timeline(df, color_sequence)
 
 
 def get_layout():
@@ -44,7 +45,9 @@ def get_layout():
                     dmc.Card([
                         html.Div('Статусы состояний', className='heading'),
                         dcc.Graph(figure=px.pie(values=percents.values(),
-                                                names=percents.keys()),
+                                                names=percents.keys(),
+                                                color=percents.keys(),
+                                                color_discrete_sequence=color_sequence),
                                   id="states",
                                   style={'margin-top': '20px',
                                          'margin-bottom': '10px'})],
@@ -54,7 +57,8 @@ def get_layout():
                     dmc.Card([
                         html.Div('График состояний',
                                  className='heading_down'),
-                        dcc.Graph(figure=fig, id='graph')],
+                        dcc.Graph(figure=fig,
+                                  id='graph')],
                         **CARD_STYLE)
                 ], span=12),
             ], gutter="xl", )

@@ -3,7 +3,7 @@ from dash.exceptions import PreventUpdate
 from dash_extensions.enrich import (DashProxy, MultiplexerTransform,
                                     ServersideOutputTransform)
 from database import df
-from layouts import fig, get_layout
+from layouts import fig, get_layout, color_sequence
 from utils import create_timeline
 
 
@@ -36,7 +36,7 @@ def filtering(
     # Filter the dataframe based on the selected values
     filtered_df = df[df['state'].isin(value)]
 
-    filtered_fig = create_timeline(filtered_df)
+    filtered_fig = create_timeline(filtered_df, color_sequence)
 
     return filtered_fig
 

@@ -35,7 +35,7 @@ def calculate_duration(df):
     return percentages
 
 
-def create_timeline(df):
+def create_timeline(df, colors):
 
     """
         This function creates timeline graph
@@ -48,7 +48,8 @@ def create_timeline(df):
                       y="endpoint_name",
                       custom_data=['state', 'reason', 'state_begin',
                                    'duration_min', 'shift_day', 'operator'],
-                      color="state")
+                      color="state",
+                      color_discrete_sequence=colors)
 
     fig.update_layout(
         xaxis=dict(title='Время'),
